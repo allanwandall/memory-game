@@ -1,20 +1,36 @@
+.video-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: transparent;
+    position: relative;
+}
+
 video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     transition: all 1s ease;
+    cursor: url(../Assets/owen_cursor.png) 32 32, pointer;
 }
 
 video:hover {
     transform: scale(1.05);
 }
 
-.fade-in {
-    transform: translateY(0);
-}
-
-.fade-out {
-    transform: translateY(2rem);
+.video-div {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: url(../Assets/owen_cursor.png) 32 32, pointer;
 }

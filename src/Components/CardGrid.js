@@ -3,7 +3,7 @@ import Card from './Card';
 import '../Styling/CardGrid.css';
 
 
-const CardGrid = ({ owens, onCardClick }) => {
+const CardGrid = ({ owens, onCardClick, difficulty }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const CardGrid = ({ owens, onCardClick }) => {
     return (
         <div className="card-grid">
             {owens.slice(0, currentIndex).map((owen, index) => (
-                <Card key={index} owen={owen} onCardClick={onCardClick} />
+                <Card key={index} owen={owen} onCardClick={onCardClick} difficulty={difficulty}/>
             ))}
         </div>
     )

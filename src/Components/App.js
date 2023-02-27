@@ -5,11 +5,12 @@ import CardGrid from './CardGrid';
 import Footer from './Footer';
 
 function App() {
-  const amount = 10;
+  const [amount, setAmount] = useState(10);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [owens, setOwens] = useState([]);
   const [clickedOwens, setClickedOwens] = useState([]);
+  const [difficulty, setDifficulty] = useState("easy")
 
   useEffect(() => {
     const load = (async () => {
@@ -55,16 +56,38 @@ function App() {
     setClickedOwens([]);
   };
 
+  const handleDifficulty = (event) => {
+    resetGame();
+    setBestScore(0);
+    setDifficulty(event.target.value);
+  }
 
+  const handleSliderChange = (event) => {
+    setAmount(event.target.value);
+  }
+
+  const handleSliderClick = (event) => {
+    resetGame();
+    setBestScore(0);
+    const load = (async () => {
+      setOwens(shuffleArray(await getOwens()))
+    })();
+  }
 
   return (
     <div className="app">
       <Header
         currentScore={currentScore}
-        bestScore={bestScore}/>
+        bestScore={bestScore}
+        onDifficultyChange={handleDifficulty}
+        difficulty={difficulty}
+        onSliderChange={handleSliderChange}
+        amount={amount}
+        onSliderClick={handleSliderClick}/>
       <CardGrid
         owens={owens}
-        onCardClick={handleCardClick} />
+        onCardClick={handleCardClick}
+        difficulty={difficulty} />
       <Footer/>
     </div>
   );
