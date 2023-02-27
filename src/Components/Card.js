@@ -8,7 +8,7 @@ const Card = ({ owen, onCardClick, difficulty }) => {
 
     useEffect(() => {
         cardContent();
-    }, [difficulty]);
+    }, [difficulty, owen]);
 
     const handleMouseOver = () => {
         if (videoRef.current) {
