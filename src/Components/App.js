@@ -8,13 +8,12 @@ function App() {
   const amount = 10;
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [owens, setOwens] = useState([null]);
+  const [owens, setOwens] = useState([]);
   const [clickedOwens, setClickedOwens] = useState([]);
 
   useEffect(() => {
     const load = (async () => {
       setOwens(shuffleArray(await getOwens()))
-      
     })();
   }, []);
 
@@ -39,14 +38,14 @@ function App() {
   };
 
   const handleCardClick = (timestamp) => {
-    console.log(timestamp);
     const currentOwen = timestamp;
     if (clickedOwens.includes(currentOwen)) {
       resetGame();
     } else {
       setClickedOwens((prevState) => [...prevState, currentOwen]);
-      setCurrentScore(currentScore++);
-      if (currentScore > bestScore) setBestScore(currentScore);
+      const newScore = currentScore + 1;
+      setCurrentScore(newScore);
+      if (newScore > bestScore) setBestScore(newScore);
     }
     setOwens(shuffleArray(owens));
   };

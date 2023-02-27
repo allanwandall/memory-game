@@ -1,7 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
 header {
+    padding: 1rem;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
+    position: relative;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.hero h1 {
+    position: absolute;
+    transform: rotate(-10deg);
+    left: 170px;
+    top: -20px;
+    font-size: 5em;
+    font-family: 'Lemon', sans-serif;
+}
+
+header > h1 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+header img {
+    width: 10rem;
+}
+
+header img:hover {
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.scores {
+    margin-right: 5rem;
+    text-align: end;
 }
